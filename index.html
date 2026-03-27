@@ -806,23 +806,6 @@ function setLang(l){
   }
 }
 
-// ═══ FULLSCREEN & APP BEHAVIOR ═════════════════
-function requestFS() {
-  if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-    try {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch(()=>{});
-      } else if (document.documentElement.webkitRequestFullscreen) {
-        document.documentElement.webkitRequestFullscreen();
-      }
-    } catch(e) {}
-  }
-}
-
-// Herhangi bir ekrana dokunuşta tam ekranı zorla (geri tuşuyla çıkılırsa ilk dokunuşta tekrar girer)
-document.addEventListener('click', requestFS);
-document.addEventListener('touchstart', requestFS, {passive: true});
-
 // ═══ HISTORY & BACK BUTTON CONTROL ═════════════
 // Sayfa açıldığında sahte bir geçmiş oluştur (siteden tamamen çıkmayı engeller)
 window.addEventListener('load', function() {
